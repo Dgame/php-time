@@ -1,0 +1,99 @@
+<?php
+
+namespace Dgame\Time;
+
+/**
+ * Class Year
+ * @package Dgame\Time
+ */
+final class Year implements TimeConvert
+{
+    /**
+     * @var int
+     */
+    private $year = 0;
+
+    /**
+     * @return Year
+     */
+    public static function Current() : Year
+    {
+        return self::Of(date('Y'));
+    }
+
+    /**
+     * @param int $year
+     *
+     * @return Year
+     */
+    public static function Of(int $year) : Year
+    {
+        return new self($year);
+    }
+
+    /**
+     * Year constructor.
+     *
+     * @param int $year
+     */
+    private function __construct(int $year)
+    {
+        $this->year = $year;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLeapyear() : bool
+    {
+        return ($this->year % 400) === 0 || (($this->year % 4) === 0 && ($this->year % 100) !== 0);
+    }
+
+    /**
+     * @return Msecs
+     */
+    public function inMsecs() : Msecs
+    {
+        return $this->inSeconds()->inMsecs();
+    }
+
+    /**
+     * @return Seconds
+     */
+    public function inSeconds() : Seconds
+    {
+        return $this->inMinutes()->inSeconds();
+    }
+
+    /**
+     * @return Minutes
+     */
+    public function inMinutes() : Minutes
+    {
+        return $this->inHours()->inMinutes();
+    }
+
+    /**
+     * @return Hours
+     */
+    public function inHours() : Hours
+    {
+        return $this->inDays()->inHours();
+    }
+
+    /**
+     * @return Days
+     */
+    public function inDays() : Days
+    {
+        return days($this->isLeapyear() ? 366 : 365);
+    }
+
+    /**
+     * @return Weeks
+     */
+    public function inWeeks() : Weeks
+    {
+        return $this->inDays()->inWeeks();
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "name": "dgame/php-time",
+    "description": "php filter",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/php-time",
+    "authors": [
+        {
+            "name": "Randy Schütt",
+            "email": "rswhite4@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.*.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "files": [
+            "src/Time.php"
+        ],
+        "psr-4": {
+            "Dgame\\Time\\": "src/"
+        }
+    }
+}

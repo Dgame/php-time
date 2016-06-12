@@ -1,0 +1,110 @@
+<?php
+
+namespace Dgame\Time;
+
+use Dgame\Time\Exception\InvalidMonthException;
+
+/**
+ * Class Month
+ * @package Dgame\Time
+ */
+final class Month implements TimeConvert
+{
+    /**
+     * @var int
+     */
+    private $month = 0;
+    /**
+     * @var int
+     */
+    private $year = 0;
+
+    /**
+     * @return Month
+     */
+    public static function Current() : Month
+    {
+        return new self(date('n'), date('Y'));
+    }
+
+    /**
+     * @param          $month
+     * @param int|null $year
+     *
+     * @return Month
+     * @throws InvalidMonthException
+     */
+    public static function Of($month, int $year = null) : Month
+    {
+        $year = $year === null ? date('Y') : $year;
+        if (is_string($month)) {
+            $month = date_parse($month)['month'];
+        }
+
+        if (!empty($month)) {
+            return new self($month, $year);
+        }
+
+        throw new InvalidMonthException($month);
+    }
+
+    /**
+     * Month constructor.
+     *
+     * @param int $month
+     * @param int $year
+     */
+    private function __construct(int $month, int $year)
+    {
+        $this->month = $month;
+        $this->year  = $year;
+    }
+
+    /**
+     * @return Msecs
+     */
+    public function inMsecs() : Msecs
+    {
+        return $this->inSeconds()->inMsecs();
+    }
+
+    /**
+     * @return Seconds
+     */
+    public function inSeconds() : Seconds
+    {
+        return $this->inMinutes()->inSeconds();
+    }
+
+    /**
+     * @return Minutes
+     */
+    public function inMinutes() : Minutes
+    {
+        return $this->inHours()->inMinutes();
+    }
+
+    /**
+     * @return Hours
+     */
+    public function inHours() : Hours
+    {
+        return $this->inDays()->inHours();
+    }
+
+    /**
+     * @return Days
+     */
+    public function inDays() : Days
+    {
+        return days(cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year));
+    }
+
+    /**
+     * @return Weeks
+     */
+    public function inWeeks() : Weeks
+    {
+        return $this->inDays()->inWeeks();
+    }
+}
