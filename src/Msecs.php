@@ -21,7 +21,7 @@ final class Msecs extends Time
      */
     public function inSeconds() : Seconds
     {
-        return seconds($this->asFloat() / 1000.0);
+        return seconds($this->asFloat() / 1000);
     }
 
     /**

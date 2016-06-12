@@ -13,7 +13,7 @@ final class Seconds extends Time
      */
     public function inMsecs() : Msecs
     {
-        return msecs($this->asFloat() * 1000.0);
+        return msecs($this->asFloat() * 1000);
     }
 
     /**
@@ -29,7 +29,7 @@ final class Seconds extends Time
      */
     public function inMinutes() : Minutes
     {
-        return minutes($this->asFloat() / 60.0);
+        return minutes($this->asFloat() / 60);
     }
 
     /**

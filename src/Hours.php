@@ -29,7 +29,7 @@ final class Hours extends Time
      */
     public function inMinutes() : Minutes
     {
-        return minutes($this->asFloat() * 60.0);
+        return minutes($this->asFloat() * 60);
     }
 
     /**
@@ -45,7 +45,7 @@ final class Hours extends Time
      */
     public function inDays() : Days
     {
-        return days($this->asFloat() / 24.0);
+        return days($this->asFloat() / 24);
     }
 
     /**

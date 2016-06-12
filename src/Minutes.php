@@ -21,7 +21,7 @@ final class Minutes extends Time
      */
     public function inSeconds() : Seconds
     {
-        return seconds($this->asFloat() * 60.0);
+        return seconds($this->asFloat() * 60);
     }
 
     /**
@@ -37,7 +37,7 @@ final class Minutes extends Time
      */
     public function inHours() : Hours
     {
-        return hours($this->asFloat() / 60.0);
+        return hours($this->asFloat() / 60);
     }
 
     /**
