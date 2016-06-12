@@ -18,6 +18,7 @@ class TestTime extends TestCase
     {
         $this->assertTrue(msecs(5000)->inSeconds()->equals(5));
         $this->assertTrue(msecs(5000)->inMinutes()->equals(0.083333333333333));
+        $this->assertTrue(msecs(6000)->inMinutes()->equals(0.1));
     }
 
     public function testSeconds()
@@ -30,12 +31,18 @@ class TestTime extends TestCase
     {
         $this->assertTrue(minutes(50)->inSeconds()->equals(3000));
         $this->assertTrue(minutes(50)->inHours()->equals(0.83333333333333));
+
+        $this->assertTrue(minutes(60)->inSeconds()->equals(3600));
+        $this->assertTrue(minutes(60)->inHours()->equals(1));
     }
 
     public function testHours()
     {
         $this->assertTrue(hours(26)->inMinutes()->equals(1560));
         $this->assertTrue(hours(26)->inDays()->equals(1.08333));
+
+        $this->assertTrue(hours(24)->inMinutes()->equals(1440));
+        $this->assertTrue(hours(24)->inDays()->equals(1));
     }
 
     public function testDays()
