@@ -3,6 +3,14 @@
 namespace Dgame\Time;
 
 use Dgame\Time\Exception\InvalidMonthException;
+use Dgame\Time\Unit\Days;
+use Dgame\Time\Unit\Hours;
+use Dgame\Time\Unit\Minutes;
+use Dgame\Time\Unit\Months;
+use Dgame\Time\Unit\Seconds;
+use Dgame\Time\Unit\TimeConvert;
+use Dgame\Time\Unit\Weeks;
+use Dgame\Time\Unit\Years;
 
 /**
  * Class Month
@@ -61,14 +69,6 @@ final class Month implements TimeConvert
     }
 
     /**
-     * @return Msecs
-     */
-    public function inMsecs() : Msecs
-    {
-        return $this->inSeconds()->inMsecs();
-    }
-
-    /**
      * @return Seconds
      */
     public function inSeconds() : Seconds
@@ -97,7 +97,7 @@ final class Month implements TimeConvert
      */
     public function inDays() : Days
     {
-        return days(cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year));
+        return new Days(cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year));
     }
 
     /**
@@ -106,5 +106,21 @@ final class Month implements TimeConvert
     public function inWeeks() : Weeks
     {
         return $this->inDays()->inWeeks();
+    }
+
+    /**
+     * @return Months
+     */
+    public function inMonths() : Months
+    {
+        return $this->inWeeks()->inMonths();
+    }
+
+    /**
+     * @return Years
+     */
+    public function inYears() : Years
+    {
+        return $this->inWeeks()->inYears();
     }
 }

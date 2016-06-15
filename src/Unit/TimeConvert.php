@@ -1,18 +1,13 @@
 <?php
 
-namespace Dgame\Time;
+namespace Dgame\Time\Unit;
 
 /**
  * Interface TimeConvert
- * @package Dgame\Time
+ * @package Dgame\Time\Unit
  */
 interface TimeConvert
 {
-    /**
-     * @return Msecs
-     */
-    public function inMsecs() : Msecs;
-
     /**
      * @return Seconds
      */
@@ -37,4 +32,14 @@ interface TimeConvert
      * @return Weeks
      */
     public function inWeeks() : Weeks;
+
+    /**
+     * @return Months
+     */
+    public function inMonths() : Months;
+
+    /**
+     * @return Years
+     */
+    public function inYears() : Years;
 }

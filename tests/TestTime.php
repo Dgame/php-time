@@ -1,29 +1,20 @@
 <?php
 
+use Dgame\Time\Month;
+use Dgame\Time\Year;
 use PHPUnit\Framework\TestCase;
-use function Dgame\Time\days;
-use function Dgame\Time\hours;
-use function Dgame\Time\minutes;
-use function Dgame\Time\month;
-use function Dgame\Time\msecs;
-use function Dgame\Time\seconds;
-use function Dgame\Time\weeks;
-use function Dgame\Time\year;
+use function Dgame\Time\Unit\days;
+use function Dgame\Time\Unit\hours;
+use function Dgame\Time\Unit\minutes;
+use function Dgame\Time\Unit\seconds;
+use function Dgame\Time\Unit\weeks;
 
 require_once '../vendor/autoload.php';
 
 class TestTime extends TestCase
 {
-    public function testMsecs()
-    {
-        $this->assertTrue(msecs(5000)->inSeconds()->equals(5));
-        $this->assertTrue(msecs(5000)->inMinutes()->equals(0.083333333333333));
-        $this->assertTrue(msecs(6000)->inMinutes()->equals(0.1));
-    }
-
     public function testSeconds()
     {
-        $this->assertTrue(seconds(300)->inMsecs()->equals(300000));
         $this->assertTrue(seconds(300)->inMinutes()->equals(5));
     }
 
@@ -58,20 +49,38 @@ class TestTime extends TestCase
 
     public function testMonth()
     {
-        $this->assertTrue(month('Feb', 2015)->inDays()->equals(28));
-        $this->assertTrue(month('Feb', 2015)->inWeeks()->equals(4));
-
-        $this->assertTrue(month('Feb', 2016)->inDays()->equals(29));
-
-        $this->assertTrue(month('Jun', 2016)->inDays()->equals(30));
-        $this->assertTrue(month('Jun', 2016)->inWeeks()->equals(4.28571));
+        $this->assertTrue(Month::Of('Feb', 2015)->inDays()->equals(28));
+        $this->assertTrue(Month::Of('Feb', 2015)->inWeeks()->equals(4));
+        $this->assertTrue(Month::Of('Feb', 2016)->inDays()->equals(29));
+        $this->assertTrue(Month::Of('Jun', 2016)->inDays()->equals(30));
+        $this->assertTrue(Month::Of('Jun', 2016)->inWeeks()->equals(4.28571));
     }
 
     public function testYear()
     {
-        $this->assertFalse(year(2015)->isLeapyear());
-        $this->assertTrue(year(2016)->isLeapyear());
-        $this->assertTrue(year(2016)->inDays()->equals(366));
-        $this->assertTrue(year(2016)->inWeeks()->equals(52.285714285714));
+        $this->assertFalse(Year::Of(2015)->isLeapyear());
+        $this->assertTrue(Year::Of(2016)->isLeapyear());
+
+        $this->assertTrue(Year::Of(2015)->inDays()->equals(365));
+        $this->assertTrue(Year::Of(2016)->inDays()->equals(366));
+
+        $this->assertTrue(Year::Of(2015)->inWeeks()->equals(52.142857142857));
+        $this->assertTrue(Year::Of(2016)->inWeeks()->equals(52.285714285714));
+    }
+
+    public function testClock()
+    {
+        $date = '15:21:31';
+        //        $clock = Clock::FromString($date);
+
+        //        $this->assertTrue($clock->getHours()->equals(15));
+        //        $this->assertTrue($clock->getMinutes()->equals(21));
+        //        $this->assertTrue($clock->getSeconds()->equals(31));
+        //
+        //        $this->assertEquals($clock, $date);
+        //
+        //        $clock->addHours(hours(1.5));
+
+        //        print_r($clock);
     }
 }
