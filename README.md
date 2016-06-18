@@ -64,7 +64,7 @@ hours(1)->equals(minutes(60));
 
 There  is a **Month** and a **Year** class (note the missing `s` at the end) to access precise informations about a specific year or a specific month in a specific year:
 
-## Month:
+### Month:
 ```php
 Month::Of('Feb', 2015)->inDays()->equalsAmount(28);
 Month::Of('Feb', 2015)->inWeeks()->equalsAmount(4);
@@ -73,7 +73,7 @@ Month::Of('Jun', 2016)->inDays()->equalsAmount(30);
 Month::Of('Jun', 2016)->inWeeks()->equalsAmount(4.28571);
 ```
 
-## Year:
+### Year:
 ```php
 Year::Of(2016)->isLeapyear();
 Year::Of(2015)->inDays()->equalsAmount(365);
@@ -84,7 +84,7 @@ Year::Of(2016)->inWeeks()->equalsAmount(52.285714285714);
 
 ----
 
-### Represent a TimeUnit as a DateUnit
+## Represent a TimeUnit as a DateUnit
 
 ```php
 $date = new DateUnit(days(1000));
