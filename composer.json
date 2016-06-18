@@ -1,6 +1,6 @@
 {
     "name": "dgame/php-time",
-    "description": "php filter",
+    "description": "php time conversion",
     "license": "MIT",
     "type": "library",
     "homepage": "https://github.com/php-time",
