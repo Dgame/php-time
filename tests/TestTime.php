@@ -83,7 +83,7 @@ class TestTime extends TestCase
         $this->assertTrue(Year::Of(2016)->inWeeks()->equalsAmount(52.285714285714));
     }
 
-    public function testClock()
+    public function testDateUnit()
     {
         $date = new DateUnit(days(1000));
 
