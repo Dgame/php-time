@@ -70,4 +70,34 @@ final class Hours extends TimeUnit
     {
         return new Years($this->getAmount() / self::YEAR);
     }
+
+    /**
+     * @param TimeUnit $unit
+     *
+     * @return TimeUnit
+     */
+    public function add(TimeUnit $unit) : TimeUnit
+    {
+        return new self($this->getAmount() + $unit->inHours()->getAmount());
+    }
+
+    /**
+     * @param TimeUnit $unit
+     *
+     * @return TimeUnit
+     */
+    public function subtract(TimeUnit $unit) : TimeUnit
+    {
+        return new self($this->getAmount() - $unit->inHours()->getAmount());
+    }
+
+    /**
+     * @param TimeUnit $unit
+     *
+     * @return bool
+     */
+    public function equals(TimeUnit $unit) : bool
+    {
+        return $this->equalsAmount($unit->inHours()->getAmount());
+    }
 }

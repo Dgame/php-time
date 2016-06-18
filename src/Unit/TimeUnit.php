@@ -16,24 +16,6 @@ abstract class TimeUnit implements TimeConvert
     private $time = 0.0;
 
     /**
-     * @return TimeUnit
-     */
-    public static function Current()
-    {
-        return self::Of(time());
-    }
-
-    /**
-     * @param float $time
-     *
-     * @return static
-     */
-    public static function Of(float $time)
-    {
-        return new static($time);
-    }
-
-    /**
      * TimeUnit constructor.
      *
      * @param float $time
@@ -52,11 +34,32 @@ abstract class TimeUnit implements TimeConvert
     }
 
     /**
+     * @param TimeUnit $unit
+     *
+     * @return TimeUnit
+     */
+    abstract public function add(TimeUnit $unit) : TimeUnit;
+
+    /**
+     * @param TimeUnit $unit
+     *
+     * @return TimeUnit
+     */
+    abstract public function subtract(TimeUnit $unit) : TimeUnit;
+
+    /**
+     * @param TimeUnit $unit
+     *
+     * @return bool
+     */
+    abstract public function equals(TimeUnit $unit) : bool;
+
+    /**
      * @param float $time
      *
      * @return bool
      */
-    final public function equals(float $time) : bool
+    final public function equalsAmount(float $time) : bool
     {
         return abs($this->time - $time) < self::EPSILON;
     }
@@ -117,7 +120,7 @@ function days(float $time) : Days
  */
 function weeks(float $time) : Weeks
 {
-    return Weeks::Of($time);
+    return new Weeks($time);
 }
 
 /**
