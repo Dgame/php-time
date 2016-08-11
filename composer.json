@@ -4,6 +4,13 @@
     "license": "MIT",
     "type": "library",
     "homepage": "https://github.com/php-time",
+    "Keywords": [
+        "Date",
+        "Time",
+        "Timer",
+        "Clock",
+        "Time conversion"
+    ],
     "authors": [
         {
             "name": "Randy Schütt",
