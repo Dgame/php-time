@@ -28,7 +28,7 @@
             "src/"
         ],
         "files": [
-            "src/Unit/TimeUnit.php"
+            "src/Unit/functions.php"
         ],
         "psr-4": {
             "Dgame\\Time\\": "src/"

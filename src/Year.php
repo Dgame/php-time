@@ -25,7 +25,7 @@ final class Year implements TimeConvert
     /**
      * @return Year
      */
-    public static function Current() : Year
+    public static function Current(): Year
     {
         return self::Of(date('Y'));
     }
@@ -35,7 +35,7 @@ final class Year implements TimeConvert
      *
      * @return Year
      */
-    public static function Of(int $year) : Year
+    public static function Of(int $year): Year
     {
         return new self($year);
     }
@@ -53,7 +53,7 @@ final class Year implements TimeConvert
     /**
      * @return bool
      */
-    public function isLeapyear() : bool
+    public function isLeapyear(): bool
     {
         return ($this->year % 400) === 0 || (($this->year % 4) === 0 && ($this->year % 100) !== 0);
     }
@@ -61,7 +61,7 @@ final class Year implements TimeConvert
     /**
      * @return Seconds
      */
-    public function inSeconds() : Seconds
+    public function inSeconds(): Seconds
     {
         return $this->inMinutes()->inSeconds();
     }
@@ -69,7 +69,7 @@ final class Year implements TimeConvert
     /**
      * @return Minutes
      */
-    public function inMinutes() : Minutes
+    public function inMinutes(): Minutes
     {
         return $this->inHours()->inMinutes();
     }
@@ -77,7 +77,7 @@ final class Year implements TimeConvert
     /**
      * @return Hours
      */
-    public function inHours() : Hours
+    public function inHours(): Hours
     {
         return $this->inDays()->inHours();
     }
@@ -85,15 +85,15 @@ final class Year implements TimeConvert
     /**
      * @return Days
      */
-    public function inDays() : Days
+    public function inDays(): Days
     {
-        return new Days($this->isLeapyear() ? 366 : 365);
+        return new Days($this->isLeapyear() ? 366: 365);
     }
 
     /**
      * @return Weeks
      */
-    public function inWeeks() : Weeks
+    public function inWeeks(): Weeks
     {
         return $this->inDays()->inWeeks();
     }
@@ -101,7 +101,7 @@ final class Year implements TimeConvert
     /**
      * @return Months
      */
-    public function inMonths() : Months
+    public function inMonths(): Months
     {
         return $this->inWeeks()->inMonths();
     }
@@ -109,7 +109,7 @@ final class Year implements TimeConvert
     /**
      * @return Years
      */
-    public function inYears() : Years
+    public function inYears(): Years
     {
         return $this->inWeeks()->inYears();
     }

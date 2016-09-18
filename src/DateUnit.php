@@ -18,33 +18,33 @@ use Dgame\Time\Unit\Years;
 final class DateUnit
 {
     /**
-     * @var Years|null
+     * @var Years
      */
-    private $years = null;
+    private $years;
     /**
-     * @var Months|null
+     * @var Months
      */
-    private $months = null;
+    private $months;
     /**
-     * @var Weeks|null
+     * @var Weeks
      */
-    private $weeks = null;
+    private $weeks;
     /**
-     * @var Days|null
+     * @var Days
      */
-    private $days = null;
+    private $days;
     /**
-     * @var Hours|null
+     * @var Hours
      */
-    private $hours = null;
+    private $hours;
     /**
-     * @var Minutes|null
+     * @var Minutes
      */
-    private $minutes = null;
+    private $minutes;
     /**
-     * @var Seconds|null
+     * @var Seconds
      */
-    private $seconds = null;
+    private $seconds;
 
     /**
      * Date constructor.
@@ -108,7 +108,7 @@ final class DateUnit
     /**
      * @return Years
      */
-    public function getYears() : Years
+    public function getYears(): Years
     {
         return $this->years;
     }
@@ -116,7 +116,7 @@ final class DateUnit
     /**
      * @return Months
      */
-    public function getMonths() : Months
+    public function getMonths(): Months
     {
         return $this->months;
     }
@@ -124,7 +124,7 @@ final class DateUnit
     /**
      * @return Weeks
      */
-    public function getWeeks() : Weeks
+    public function getWeeks(): Weeks
     {
         return $this->weeks;
     }
@@ -132,7 +132,7 @@ final class DateUnit
     /**
      * @return Days
      */
-    public function getDays() : Days
+    public function getDays(): Days
     {
         return $this->days;
     }
@@ -140,7 +140,7 @@ final class DateUnit
     /**
      * @return Hours
      */
-    public function getHours() : Hours
+    public function getHours(): Hours
     {
         return $this->hours;
     }
@@ -148,7 +148,7 @@ final class DateUnit
     /**
      * @return Minutes
      */
-    public function getMinutes() : Minutes
+    public function getMinutes(): Minutes
     {
         return $this->minutes;
     }
@@ -156,7 +156,7 @@ final class DateUnit
     /**
      * @return Seconds
      */
-    public function getSeconds() : Seconds
+    public function getSeconds(): Seconds
     {
         return $this->seconds;
     }
