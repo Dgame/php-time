@@ -1,20 +1,20 @@
 <?php
 
-use Dgame\Time\DateUnit;
 use Dgame\Time\Month;
-use function Dgame\Time\Unit\months;
+use Dgame\Time\Units;
 use Dgame\Time\Year;
 use PHPUnit\Framework\TestCase;
 use function Dgame\Time\Unit\days;
 use function Dgame\Time\Unit\hours;
 use function Dgame\Time\Unit\minutes;
+use function Dgame\Time\Unit\months;
 use function Dgame\Time\Unit\seconds;
 use function Dgame\Time\Unit\weeks;
 use function Dgame\Time\Unit\years;
 
 require_once '../vendor/autoload.php';
 
-class TestTime extends TestCase
+class TimeTest extends TestCase
 {
     public function testSeconds()
     {
@@ -85,7 +85,7 @@ class TestTime extends TestCase
 
     public function testDateUnit()
     {
-        $date = new DateUnit(days(1000));
+        $date = new Units(days(1000));
 
         $this->assertTrue($date->getYears()->equalsAmount(2));
         $this->assertTrue($date->getMonths()->equalsAmount(8));
@@ -113,5 +113,6 @@ class TestTime extends TestCase
     public function testSubtract()
     {
         $this->assertTrue(hours(24)->subtract(days(0.5))->equals(hours(12)));
+        $this->assertEquals(date('d.m.Y H:i:s', strtotime('-3 days')), seconds(time())->subtract(days(3))->format('d.m.Y H:i:s'));
     }
 }

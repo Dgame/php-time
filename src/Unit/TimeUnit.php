@@ -6,7 +6,7 @@ namespace Dgame\Time\Unit;
  * Class TimeUnit
  * @package Dgame\Time\Unit
  */
-abstract class TimeUnit implements TimeConvert
+abstract class TimeUnit implements TimeConversion
 {
     const EPSILON = 0.00001;
 
@@ -62,6 +62,16 @@ abstract class TimeUnit implements TimeConvert
     final public function equalsAmount(float $time): bool
     {
         return abs($this->time - $time) < self::EPSILON;
+    }
+
+    /**
+     * @param string $format
+     *
+     * @return string
+     */
+    final public function format(string $format): string
+    {
+        return date($format, $this->inSeconds()->getAmount());
     }
 
     /**

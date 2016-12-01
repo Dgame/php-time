@@ -12,10 +12,10 @@ use Dgame\Time\Unit\Weeks;
 use Dgame\Time\Unit\Years;
 
 /**
- * Class DateUnit
+ * Class Units
  * @package Dgame\Time
  */
-final class DateUnit
+final class Units
 {
     /**
      * @var Years
@@ -55,46 +55,25 @@ final class DateUnit
     {
         $days = $unit->inDays();
 
-        //        var_dump($days);
-
         $year = floor($days->getAmount() / Days::YEAR);
         $days = new Days($days->getAmount() - ($year * Days::YEAR));
-
-        //        var_dump($year);
-        //        var_dump($days);
 
         $month = floor($days->getAmount() / Days::MONTH);
         $days  = new Days($days->getAmount() - ($month * Days::MONTH));
 
-        //        var_dump($month);
-        //        var_dump($days);
-
         $week = floor($days->getAmount() / Days::WEEK);
         $days = new Days($days->getAmount() - ($week * Days::WEEK));
-
-        //        var_dump($week);
-        //        var_dump($days);
 
         $day  = floor($days->getAmount());
         $days = new Days($days->getAmount() - $day);
 
-        //        var_dump($day);
-        //        var_dump($days);
-
         $hour = floor($days->getAmount() * Days::HOURS);
         $days = new Days($days->getAmount() - ($hour / Days::HOURS));
-
-        //        var_dump($hour);
-        //        var_dump($days);
 
         $minute = floor($days->getAmount() * Days::MINUTES);
         $days   = new Days($days->getAmount() - ($minute / Days::MINUTES));
 
-        //        var_dump($min);
-        //        var_dump($days);
-
         $second = ceil($days->getAmount() * Days::SECONDS);
-        //        var_dump($seconds);
 
         $this->years   = new Years($year);
         $this->months  = new Months($month);
@@ -108,7 +87,7 @@ final class DateUnit
     /**
      * @return Years
      */
-    public function getYears(): Years
+    final public function getYears(): Years
     {
         return $this->years;
     }
@@ -116,7 +95,7 @@ final class DateUnit
     /**
      * @return Months
      */
-    public function getMonths(): Months
+    final public function getMonths(): Months
     {
         return $this->months;
     }
@@ -124,7 +103,7 @@ final class DateUnit
     /**
      * @return Weeks
      */
-    public function getWeeks(): Weeks
+    final public function getWeeks(): Weeks
     {
         return $this->weeks;
     }
@@ -132,7 +111,7 @@ final class DateUnit
     /**
      * @return Days
      */
-    public function getDays(): Days
+    final public function getDays(): Days
     {
         return $this->days;
     }
@@ -140,7 +119,7 @@ final class DateUnit
     /**
      * @return Hours
      */
-    public function getHours(): Hours
+    final public function getHours(): Hours
     {
         return $this->hours;
     }
@@ -148,7 +127,7 @@ final class DateUnit
     /**
      * @return Minutes
      */
-    public function getMinutes(): Minutes
+    final public function getMinutes(): Minutes
     {
         return $this->minutes;
     }
@@ -156,7 +135,7 @@ final class DateUnit
     /**
      * @return Seconds
      */
-    public function getSeconds(): Seconds
+    final public function getSeconds(): Seconds
     {
         return $this->seconds;
     }

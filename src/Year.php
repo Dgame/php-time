@@ -7,7 +7,7 @@ use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Months;
 use Dgame\Time\Unit\Seconds;
-use Dgame\Time\Unit\TimeConvert;
+use Dgame\Time\Unit\TimeConversion;
 use Dgame\Time\Unit\Weeks;
 use Dgame\Time\Unit\Years;
 
@@ -15,7 +15,7 @@ use Dgame\Time\Unit\Years;
  * Class Year
  * @package Dgame\Time
  */
-final class Year implements TimeConvert
+final class Year implements TimeConversion
 {
     /**
      * @var int
@@ -87,7 +87,7 @@ final class Year implements TimeConvert
      */
     public function inDays(): Days
     {
-        return new Days($this->isLeapyear() ? 366: 365);
+        return new Days($this->isLeapyear() ? 366 : 365);
     }
 
     /**

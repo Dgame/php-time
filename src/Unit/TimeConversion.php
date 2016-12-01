@@ -3,10 +3,10 @@
 namespace Dgame\Time\Unit;
 
 /**
- * Interface TimeConvert
+ * Interface TimeConversion
  * @package Dgame\Time\Unit
  */
-interface TimeConvert
+interface TimeConversion
 {
     /**
      * @return Seconds

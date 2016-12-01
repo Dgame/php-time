@@ -8,7 +8,7 @@ use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Months;
 use Dgame\Time\Unit\Seconds;
-use Dgame\Time\Unit\TimeConvert;
+use Dgame\Time\Unit\TimeConversion;
 use Dgame\Time\Unit\Weeks;
 use Dgame\Time\Unit\Years;
 
@@ -16,7 +16,7 @@ use Dgame\Time\Unit\Years;
  * Class Month
  * @package Dgame\Time
  */
-final class Month implements TimeConvert
+final class Month implements TimeConversion
 {
     /**
      * @var int
