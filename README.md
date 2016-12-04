@@ -84,15 +84,15 @@ Year::Of(2016)->inWeeks()->equalsAmount(52.285714285714);
 
 ----
 
-## Represent a TimeUnit as a DateUnit
+## Represent a TimeUnit in individual units
 
 ```php
-$date = new DateUnit(days(1000));
-$date->getYears()->equalsAmount(2);
-$date->getMonths()->equalsAmount(8);
-$date->getWeeks()->equalsAmount(3);
-$date->getDays()->equalsAmount(5);
-$date->getHours()->equalsAmount(11);
-$date->getMinutes()->equalsAmount(31);
-$date->getSeconds()->equalsAmount(12);
+$units = new Units(days(1000));
+$units->getYears()->equalsAmount(2);
+$units->getMonths()->equalsAmount(8);
+$units->getWeeks()->equalsAmount(3);
+$units->getDays()->equalsAmount(5);
+$units->getHours()->equalsAmount(11);
+$units->getMinutes()->equalsAmount(31);
+$units->getSeconds()->equalsAmount(12);
 ```
