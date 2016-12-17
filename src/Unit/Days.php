@@ -8,19 +8,16 @@ namespace Dgame\Time\Unit;
  */
 final class Days extends TimeUnit
 {
-    const SECONDS_PER_DAY = 86400;
-    const MINUTES_PER_DAY = 1440;
-    const HOURS_PER_DAY   = 24;
-    const DAYS_PER_WEEK   = 7;
-    const DAYS_PER_MONTH  = 30.44;
-    const DAYS_PER_YEAR   = 365;
+    const DAYS_PER_WEEK  = 7;
+    const DAYS_PER_MONTH = 30.44;
+    const DAYS_PER_YEAR  = 365;
 
     /**
      * @return Seconds
      */
     public function inSeconds(): Seconds
     {
-        return new Seconds($this->getAmount() * self::SECONDS_PER_DAY);
+        return new Seconds($this->getAmount() * Seconds::SECONDS_PER_DAY);
     }
 
     /**
@@ -28,7 +25,7 @@ final class Days extends TimeUnit
      */
     public function inMinutes(): Minutes
     {
-        return new Minutes($this->getAmount() * self::MINUTES_PER_DAY);
+        return new Minutes($this->getAmount() * Minutes::MINUTES_PER_DAY);
     }
 
     /**
@@ -36,7 +33,7 @@ final class Days extends TimeUnit
      */
     public function inHours(): Hours
     {
-        return new Hours($this->getAmount() * self::HOURS_PER_DAY);
+        return new Hours($this->getAmount() * Hours::HOURS_PER_DAY);
     }
 
     /**

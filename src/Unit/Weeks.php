@@ -8,19 +8,15 @@ namespace Dgame\Time\Unit;
  */
 final class Weeks extends TimeUnit
 {
-    const SECONDS_PER_WEEK = 604800;
-    const MINUTES_PER_WEEK = 10080;
-    const HOURS_PER_WEEK   = 168;
-    const DAYS_PER_WEEK    = 7;
-    const WEEKS_PER_MONTH  = 4.35;
-    const WEEKS_PER_YEAR   = 52;
+    const WEEKS_PER_MONTH = 4.35;
+    const WEEKS_PER_YEAR  = 52;
 
     /**
      * @return Seconds
      */
     public function inSeconds(): Seconds
     {
-        return new Seconds($this->getAmount() * self::SECONDS_PER_WEEK);
+        return new Seconds($this->getAmount() * Seconds::SECONDS_PER_WEEK);
     }
 
     /**
@@ -28,7 +24,7 @@ final class Weeks extends TimeUnit
      */
     public function inMinutes(): Minutes
     {
-        return new Minutes($this->getAmount() * self::MINUTES_PER_WEEK);
+        return new Minutes($this->getAmount() * Minutes::MINUTES_PER_WEEK);
     }
 
     /**
@@ -36,7 +32,7 @@ final class Weeks extends TimeUnit
      */
     public function inHours(): Hours
     {
-        return new Hours($this->getAmount() * self::HOURS_PER_WEEK);
+        return new Hours($this->getAmount() * Hours::HOURS_PER_WEEK);
     }
 
     /**
@@ -44,7 +40,7 @@ final class Weeks extends TimeUnit
      */
     public function inDays(): Days
     {
-        return new Days($this->getAmount() * self::DAYS_PER_WEEK);
+        return new Days($this->getAmount() * Days::DAYS_PER_WEEK);
     }
 
     /**

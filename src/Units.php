@@ -67,13 +67,13 @@ final class Units
         $day  = floor($days->getAmount());
         $days = new Days($days->getAmount() - $day);
 
-        $hour = floor($days->getAmount() * Days::HOURS_PER_DAY);
-        $days = new Days($days->getAmount() - ($hour / Days::HOURS_PER_DAY));
+        $hour = floor($days->getAmount() * Hours::HOURS_PER_DAY);
+        $days = new Days($days->getAmount() - ($hour / Hours::HOURS_PER_DAY));
 
-        $minute = floor($days->getAmount() * Days::MINUTES_PER_DAY);
-        $days   = new Days($days->getAmount() - ($minute / Days::MINUTES_PER_DAY));
+        $minute = floor($days->getAmount() * Minutes::MINUTES_PER_DAY);
+        $days   = new Days($days->getAmount() - ($minute / Minutes::MINUTES_PER_DAY));
 
-        $second = ceil($days->getAmount() * Days::SECONDS_PER_DAY);
+        $second = ceil($days->getAmount() * Seconds::SECONDS_PER_DAY);
 
         $this->years   = new Years($year);
         $this->months  = new Months($month);

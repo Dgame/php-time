@@ -8,8 +8,6 @@ namespace Dgame\Time\Unit;
  */
 final class Hours extends TimeUnit
 {
-    const SECONDS_PER_HOUR = 3600;
-    const MINUTES_PER_HOUR = 60;
     const HOURS_PER_DAY    = 24;
     const HOURS_PER_WEEK   = 168;
     const HOURS_PER_MONTH  = 730.56;
@@ -20,7 +18,7 @@ final class Hours extends TimeUnit
      */
     public function inSeconds(): Seconds
     {
-        return new Seconds($this->getAmount() * self::SECONDS_PER_HOUR);
+        return new Seconds($this->getAmount() * Seconds::SECONDS_PER_HOUR);
     }
 
     /**
@@ -28,7 +26,7 @@ final class Hours extends TimeUnit
      */
     public function inMinutes(): Minutes
     {
-        return new Minutes($this->getAmount() * self::MINUTES_PER_HOUR);
+        return new Minutes($this->getAmount() * Minutes::MINUTES_PER_HOUR);
     }
 
     /**
