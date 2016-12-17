@@ -8,19 +8,19 @@ namespace Dgame\Time\Unit;
  */
 final class Months extends TimeUnit
 {
-    const SECONDS = 2630000;
-    const MINUTES = 43833.33;
-    const HOURS   = 730.56;
-    const DAYS    = 30.44;
-    const WEEKS   = 4.35;
-    const YEAR    = 12;
+    const SECONDS_PER_MONTH = 2630000;
+    const MINUTES_PER_MONTH = 43833.33;
+    const HOURS_PER_MONTH   = 730.56;
+    const DAYS_PER_MONTH    = 30.44;
+    const WEEKS_PER_MONTH   = 4.35;
+    const MONTHS_PER_YEAR   = 12;
 
     /**
      * @return Seconds
      */
     public function inSeconds(): Seconds
     {
-        return new Seconds($this->getAmount() * self::SECONDS);
+        return new Seconds($this->getAmount() * self::SECONDS_PER_MONTH);
     }
 
     /**
@@ -28,7 +28,7 @@ final class Months extends TimeUnit
      */
     public function inMinutes(): Minutes
     {
-        return new Minutes($this->getAmount() * self::MINUTES);
+        return new Minutes($this->getAmount() * self::MINUTES_PER_MONTH);
     }
 
     /**
@@ -36,7 +36,7 @@ final class Months extends TimeUnit
      */
     public function inHours(): Hours
     {
-        return new Hours($this->getAmount() * self::HOURS);
+        return new Hours($this->getAmount() * self::HOURS_PER_MONTH);
     }
 
     /**
@@ -44,7 +44,7 @@ final class Months extends TimeUnit
      */
     public function inDays(): Days
     {
-        return new Days($this->getAmount() * self::DAYS);
+        return new Days($this->getAmount() * self::DAYS_PER_MONTH);
     }
 
     /**
@@ -52,7 +52,7 @@ final class Months extends TimeUnit
      */
     public function inWeeks(): Weeks
     {
-        return new Weeks($this->getAmount() * self::WEEKS);
+        return new Weeks($this->getAmount() * self::WEEKS_PER_MONTH);
     }
 
     /**
@@ -68,7 +68,7 @@ final class Months extends TimeUnit
      */
     public function inYears(): Years
     {
-        return new Years($this->getAmount() / self::YEAR);
+        return new Years($this->getAmount() / self::MONTHS_PER_YEAR);
     }
 
     /**

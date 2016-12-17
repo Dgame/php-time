@@ -8,12 +8,12 @@ namespace Dgame\Time\Unit;
  */
 final class Seconds extends TimeUnit
 {
-    const MINUTE = 60;
-    const HOUR   = 3600;
-    const DAY    = 86400;
-    const WEEK   = 604800;
-    const MONTH  = 2630000;
-    const YEAR   = 31536000;
+    const SECONDS_PER_MINUTE = 60;
+    const SECONDS_PER_HOUR   = 3600;
+    const SECONDS_PER_DAY    = 86400;
+    const SECONDS_PER_WEEK   = 604800;
+    const SECONDS_PER_MONTH  = 2630000;
+    const SECONDS_PER_YEAR   = 31536000;
 
     /**
      * @return Seconds
@@ -28,7 +28,7 @@ final class Seconds extends TimeUnit
      */
     public function inMinutes(): Minutes
     {
-        return new Minutes($this->getAmount() / self::MINUTE);
+        return new Minutes($this->getAmount() / self::SECONDS_PER_MINUTE);
     }
 
     /**
@@ -36,7 +36,7 @@ final class Seconds extends TimeUnit
      */
     public function inHours(): Hours
     {
-        return new Hours($this->getAmount() / self::HOUR);
+        return new Hours($this->getAmount() / self::SECONDS_PER_HOUR);
     }
 
     /**
@@ -44,7 +44,7 @@ final class Seconds extends TimeUnit
      */
     public function inDays(): Days
     {
-        return new Days($this->getAmount() / self::DAY);
+        return new Days($this->getAmount() / self::SECONDS_PER_DAY);
     }
 
     /**
@@ -52,7 +52,7 @@ final class Seconds extends TimeUnit
      */
     public function inWeeks(): Weeks
     {
-        return new Weeks($this->getAmount() / self::WEEK);
+        return new Weeks($this->getAmount() / self::SECONDS_PER_WEEK);
     }
 
     /**
@@ -60,7 +60,7 @@ final class Seconds extends TimeUnit
      */
     public function inMonths(): Months
     {
-        return new Months($this->getAmount() / self::MONTH);
+        return new Months($this->getAmount() / self::SECONDS_PER_MONTH);
     }
 
     /**
@@ -68,7 +68,7 @@ final class Seconds extends TimeUnit
      */
     public function inYears(): Years
     {
-        return new Years($this->getAmount() / self::YEAR);
+        return new Years($this->getAmount() / self::SECONDS_PER_YEAR);
     }
 
     /**

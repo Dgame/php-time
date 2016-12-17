@@ -55,25 +55,25 @@ final class Units
     {
         $days = $unit->inDays();
 
-        $year = floor($days->getAmount() / Days::YEAR);
-        $days = new Days($days->getAmount() - ($year * Days::YEAR));
+        $year = floor($days->getAmount() / Days::DAYS_PER_YEAR);
+        $days = new Days($days->getAmount() - ($year * Days::DAYS_PER_YEAR));
 
-        $month = floor($days->getAmount() / Days::MONTH);
-        $days  = new Days($days->getAmount() - ($month * Days::MONTH));
+        $month = floor($days->getAmount() / Days::DAYS_PER_MONTH);
+        $days  = new Days($days->getAmount() - ($month * Days::DAYS_PER_MONTH));
 
-        $week = floor($days->getAmount() / Days::WEEK);
-        $days = new Days($days->getAmount() - ($week * Days::WEEK));
+        $week = floor($days->getAmount() / Days::DAYS_PER_WEEK);
+        $days = new Days($days->getAmount() - ($week * Days::DAYS_PER_WEEK));
 
         $day  = floor($days->getAmount());
         $days = new Days($days->getAmount() - $day);
 
-        $hour = floor($days->getAmount() * Days::HOURS);
-        $days = new Days($days->getAmount() - ($hour / Days::HOURS));
+        $hour = floor($days->getAmount() * Days::HOURS_PER_DAY);
+        $days = new Days($days->getAmount() - ($hour / Days::HOURS_PER_DAY));
 
-        $minute = floor($days->getAmount() * Days::MINUTES);
-        $days   = new Days($days->getAmount() - ($minute / Days::MINUTES));
+        $minute = floor($days->getAmount() * Days::MINUTES_PER_DAY);
+        $days   = new Days($days->getAmount() - ($minute / Days::MINUTES_PER_DAY));
 
-        $second = ceil($days->getAmount() * Days::SECONDS);
+        $second = ceil($days->getAmount() * Days::SECONDS_PER_DAY);
 
         $this->years   = new Years($year);
         $this->months  = new Months($month);
@@ -87,7 +87,7 @@ final class Units
     /**
      * @return Years
      */
-    final public function getYears(): Years
+    public function getYears(): Years
     {
         return $this->years;
     }
@@ -95,7 +95,7 @@ final class Units
     /**
      * @return Months
      */
-    final public function getMonths(): Months
+    public function getMonths(): Months
     {
         return $this->months;
     }
@@ -103,7 +103,7 @@ final class Units
     /**
      * @return Weeks
      */
-    final public function getWeeks(): Weeks
+    public function getWeeks(): Weeks
     {
         return $this->weeks;
     }
@@ -111,7 +111,7 @@ final class Units
     /**
      * @return Days
      */
-    final public function getDays(): Days
+    public function getDays(): Days
     {
         return $this->days;
     }
@@ -119,7 +119,7 @@ final class Units
     /**
      * @return Hours
      */
-    final public function getHours(): Hours
+    public function getHours(): Hours
     {
         return $this->hours;
     }
@@ -127,7 +127,7 @@ final class Units
     /**
      * @return Minutes
      */
-    final public function getMinutes(): Minutes
+    public function getMinutes(): Minutes
     {
         return $this->minutes;
     }
@@ -135,7 +135,7 @@ final class Units
     /**
      * @return Seconds
      */
-    final public function getSeconds(): Seconds
+    public function getSeconds(): Seconds
     {
         return $this->seconds;
     }
