@@ -1,5 +1,7 @@
 # php-time
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Dgame/php-time/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Dgame/php-time/?branch=master)
+
 ## Convert TimeUnits to other TimeUnits in no time.
 
 ### Seconds:
