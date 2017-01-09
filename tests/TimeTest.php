@@ -12,8 +12,6 @@ use function Dgame\Time\Unit\seconds;
 use function Dgame\Time\Unit\weeks;
 use function Dgame\Time\Unit\years;
 
-require_once '../vendor/autoload.php';
-
 class TimeTest extends TestCase
 {
     public function testSeconds()
