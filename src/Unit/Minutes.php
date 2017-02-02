@@ -6,7 +6,7 @@ namespace Dgame\Time\Unit;
  * Class Minutes
  * @package Dgame\Time\Unit
  */
-final class Minutes extends TimeUnit
+final class Minutes extends AbstractTimeUnit
 {
     const MINUTES_PER_HOUR   = 60;
     const MINUTES_PER_DAY    = 1440;
@@ -71,31 +71,31 @@ final class Minutes extends TimeUnit
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function add(TimeUnit $unit): TimeUnit
+    public function add(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() + $unit->inMinutes()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function subtract(TimeUnit $unit): TimeUnit
+    public function subtract(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() - $unit->inMinutes()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
      * @return bool
      */
-    public function equals(TimeUnit $unit): bool
+    public function equals(TimeUnitInterface $unit): bool
     {
         return $this->equalsAmount($unit->inMinutes()->getAmount());
     }

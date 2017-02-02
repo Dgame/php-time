@@ -3,10 +3,10 @@
 namespace Dgame\Time\Unit;
 
 /**
- * Class TimeUnit
+ * Class AbstractTimeUnit
  * @package Dgame\Time\Unit
  */
-abstract class TimeUnit implements TimeConversion
+abstract class AbstractTimeUnit implements TimeUnitInterface
 {
     const EPSILON = 0.00001;
 
@@ -34,27 +34,6 @@ abstract class TimeUnit implements TimeConversion
     }
 
     /**
-     * @param TimeUnit $unit
-     *
-     * @return TimeUnit
-     */
-    abstract public function add(TimeUnit $unit): TimeUnit;
-
-    /**
-     * @param TimeUnit $unit
-     *
-     * @return TimeUnit
-     */
-    abstract public function subtract(TimeUnit $unit): TimeUnit;
-
-    /**
-     * @param TimeUnit $unit
-     *
-     * @return bool
-     */
-    abstract public function equals(TimeUnit $unit): bool;
-
-    /**
      * @param float $time
      *
      * @return bool
@@ -62,16 +41,6 @@ abstract class TimeUnit implements TimeConversion
     final public function equalsAmount(float $time): bool
     {
         return abs($this->time - $time) < self::EPSILON;
-    }
-
-    /**
-     * @param string $format
-     *
-     * @return string
-     */
-    final public function format(string $format): string
-    {
-        return date($format, $this->inSeconds()->getAmount());
     }
 
     /**

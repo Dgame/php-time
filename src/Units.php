@@ -7,7 +7,7 @@ use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Months;
 use Dgame\Time\Unit\Seconds;
-use Dgame\Time\Unit\TimeUnit;
+use Dgame\Time\Unit\AbstractTimeUnit;
 use Dgame\Time\Unit\Weeks;
 use Dgame\Time\Unit\Years;
 
@@ -49,9 +49,9 @@ final class Units
     /**
      * Date constructor.
      *
-     * @param TimeUnit $unit
+     * @param AbstractTimeUnit $unit
      */
-    public function __construct(TimeUnit $unit)
+    public function __construct(AbstractTimeUnit $unit)
     {
         $days = $unit->inDays();
 

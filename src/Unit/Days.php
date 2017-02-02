@@ -6,7 +6,7 @@ namespace Dgame\Time\Unit;
  * Class Days
  * @package Dgame\Time\Unit
  */
-final class Days extends TimeUnit
+final class Days extends AbstractTimeUnit
 {
     const DAYS_PER_WEEK  = 7;
     const DAYS_PER_MONTH = 30.44;
@@ -69,31 +69,31 @@ final class Days extends TimeUnit
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function add(TimeUnit $unit): TimeUnit
+    public function add(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() + $unit->inDays()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function subtract(TimeUnit $unit): TimeUnit
+    public function subtract(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() - $unit->inDays()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
      * @return bool
      */
-    public function equals(TimeUnit $unit): bool
+    public function equals(TimeUnitInterface $unit): bool
     {
         return $this->equalsAmount($unit->inDays()->getAmount());
     }

@@ -6,12 +6,12 @@ namespace Dgame\Time\Unit;
  * Class Hours
  * @package Dgame\Time\Unit
  */
-final class Hours extends TimeUnit
+final class Hours extends AbstractTimeUnit
 {
-    const HOURS_PER_DAY    = 24;
-    const HOURS_PER_WEEK   = 168;
-    const HOURS_PER_MONTH  = 730.56;
-    const HOURS_PER_YEAR   = 8760;
+    const HOURS_PER_DAY   = 24;
+    const HOURS_PER_WEEK  = 168;
+    const HOURS_PER_MONTH = 730.56;
+    const HOURS_PER_YEAR  = 8760;
 
     /**
      * @return Seconds
@@ -70,31 +70,31 @@ final class Hours extends TimeUnit
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function add(TimeUnit $unit): TimeUnit
+    public function add(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() + $unit->inHours()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function subtract(TimeUnit $unit): TimeUnit
+    public function subtract(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() - $unit->inHours()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
      * @return bool
      */
-    public function equals(TimeUnit $unit): bool
+    public function equals(TimeUnitInterface $unit): bool
     {
         return $this->equalsAmount($unit->inHours()->getAmount());
     }

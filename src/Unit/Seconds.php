@@ -6,7 +6,7 @@ namespace Dgame\Time\Unit;
  * Class Seconds
  * @package Dgame\Time\Unit
  */
-final class Seconds extends TimeUnit
+final class Seconds extends AbstractTimeUnit
 {
     const SECONDS_PER_MINUTE = 60;
     const SECONDS_PER_HOUR   = 3600;
@@ -72,31 +72,31 @@ final class Seconds extends TimeUnit
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function add(TimeUnit $unit): TimeUnit
+    public function add(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() + $unit->inSeconds()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function subtract(TimeUnit $unit): TimeUnit
+    public function subtract(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() - $unit->inSeconds()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
      * @return bool
      */
-    public function equals(TimeUnit $unit): bool
+    public function equals(TimeUnitInterface $unit): bool
     {
         return $this->equalsAmount($unit->inSeconds()->getAmount());
     }

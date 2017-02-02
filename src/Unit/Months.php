@@ -6,7 +6,7 @@ namespace Dgame\Time\Unit;
  * Class Months
  * @package Dgame\Time\Unit
  */
-final class Months extends TimeUnit
+final class Months extends AbstractTimeUnit
 {
     const MONTHS_PER_YEAR = 12;
 
@@ -67,31 +67,31 @@ final class Months extends TimeUnit
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function add(TimeUnit $unit): TimeUnit
+    public function add(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() + $unit->inMonths()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
-     * @return TimeUnit
+     * @return TimeUnitInterface
      */
-    public function subtract(TimeUnit $unit): TimeUnit
+    public function subtract(TimeUnitInterface $unit): TimeUnitInterface
     {
         return new self($this->getAmount() - $unit->inMonths()->getAmount());
     }
 
     /**
-     * @param TimeUnit $unit
+     * @param TimeUnitInterface $unit
      *
      * @return bool
      */
-    public function equals(TimeUnit $unit): bool
+    public function equals(TimeUnitInterface $unit): bool
     {
         return $this->equalsAmount($unit->inMonths()->getAmount());
     }
