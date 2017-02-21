@@ -7,7 +7,7 @@ use function Dgame\Time\Unit\minutes;
 use function Dgame\Time\Unit\weeks;
 use function Dgame\Time\Unit\years;
 
-class TimeTest extends TestCase
+class TimeUnitTest extends TestCase
 {
     public function testEquality()
     {
