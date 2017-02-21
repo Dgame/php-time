@@ -91,12 +91,37 @@ Year::Of(2016)->inWeeks()->equalsAmount(52.285714285714);
 ## Represent a TimeUnit in individual units
 
 ```php
-$units = new Units(days(1000));
-$units->getYears()->equalsAmount(2);
-$units->getMonths()->equalsAmount(8);
-$units->getWeeks()->equalsAmount(3);
-$units->getDays()->equalsAmount(5);
-$units->getHours()->equalsAmount(11);
-$units->getMinutes()->equalsAmount(31);
-$units->getSeconds()->equalsAmount(12);
+$unit = new TimeUnits(days(1000));
+
+$this->assertTrue($unit->getYears()->equalsAmount(2));
+$this->assertTrue($unit->getMonths()->equalsAmount(8));
+$this->assertTrue($unit->getWeeks()->equalsAmount(3));
+$this->assertTrue($unit->getDays()->equalsAmount(5));
+$this->assertTrue($unit->getHours()->equalsAmount(11));
+$this->assertTrue($unit->getMinutes()->equalsAmount(33));
+$this->assertTrue($unit->getSeconds()->equalsAmount(20));
+```
+
+```php
+$unit = new TimeUnits(hours(4.5));
+
+$this->assertTrue($unit->getYears()->equalsAmount(0));
+$this->assertTrue($unit->getMonths()->equalsAmount(0));
+$this->assertTrue($unit->getWeeks()->equalsAmount(0));
+$this->assertTrue($unit->getDays()->equalsAmount(0));
+$this->assertTrue($unit->getHours()->equalsAmount(4));
+$this->assertTrue($unit->getMinutes()->equalsAmount(30));
+$this->assertTrue($unit->getSeconds()->equalsAmount(0));
+```
+
+```php
+$unit = new TimeUnits(minutes(525));
+
+$this->assertTrue($unit->getYears()->equalsAmount(0));
+$this->assertTrue($unit->getMonths()->equalsAmount(0));
+$this->assertTrue($unit->getWeeks()->equalsAmount(0));
+$this->assertTrue($unit->getDays()->equalsAmount(0));
+$this->assertTrue($unit->getHours()->equalsAmount(8));
+$this->assertTrue($unit->getMinutes()->equalsAmount(45));
+$this->assertTrue($unit->getSeconds()->equalsAmount(0));
 ```
