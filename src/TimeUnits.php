@@ -55,32 +55,30 @@ final class TimeUnits
      */
     public function __construct(TimeUnitInterface $unit)
     {
-        $days        = $unit->inDays();
-        $years       = $days->getAmount() / Days::DAYS_PER_YEAR;
-        $this->years = floor($years);
-        $result      = round($years - $this->years, 4);
+        $seconds     = $unit->inSeconds()->getAmount();
+        $this->years = floor($seconds / Seconds::SECONDS_PER_YEAR);
 
-        $days         = $result * Days::DAYS_PER_YEAR;
-        $month        = $days / Days::DAYS_PER_MONTH;
-        $this->months = floor($month);
-        $result       = round($month - $this->months, 4);
+        $seconds -= $this->years * Seconds::SECONDS_PER_YEAR;
+        $this->months = floor($seconds / Seconds::SECONDS_PER_MONTH);
 
-        $days        = $result * Days::DAYS_PER_MONTH;
-        $weeks       = $days / Days::DAYS_PER_WEEK;
-        $this->weeks = floor($weeks);
-        $result      = round($weeks - $this->weeks, 4);
+        $seconds -= $this->months * Seconds::SECONDS_PER_MONTH;
+        $this->weeks = floor($seconds / Seconds::SECONDS_PER_WEEK);
 
-        $days        = $result * Days::DAYS_PER_WEEK;
-        $result      = round($days - floor($days), 4);
-        $hours       = $result * Hours::HOURS_PER_DAY;
-        $this->hours = floor($hours);
-        $result      = round($hours - $this->hours, 4);
+        $seconds -= $this->weeks * Seconds::SECONDS_PER_WEEK;
+        $this->days = floor($seconds / Seconds::SECONDS_PER_DAY);
 
-        $this->days    = floor($days);
-        $minutes       = $result * Minutes::MINUTES_PER_HOUR;
-        $this->minutes = floor($minutes);
-        $result        = round($minutes - $this->minutes, 4);
-        $this->seconds = $result * Seconds::SECONDS_PER_MINUTE;
+        $seconds -= $this->days * Seconds::SECONDS_PER_DAY;
+        $this->hours = floor($seconds / Seconds::SECONDS_PER_HOUR);
+
+        $seconds -= $this->hours * Seconds::SECONDS_PER_HOUR;
+        $this->minutes = floor($seconds / Seconds::SECONDS_PER_MINUTE);
+
+        $this->seconds = round($seconds - ($this->minutes * Seconds::SECONDS_PER_MINUTE), 2);
+
+        if (abs($this->seconds - Seconds::SECONDS_PER_MINUTE) < 0.01) {
+            $this->minutes++;
+            $this->seconds = 0;
+        }
     }
 
     /**
