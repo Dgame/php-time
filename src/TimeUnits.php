@@ -4,12 +4,12 @@ namespace Dgame\Time;
 
 use DateInterval;
 use DateTime;
-use Dgame\Time\Unit\AbstractTimeUnit;
 use Dgame\Time\Unit\Days;
 use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Months;
 use Dgame\Time\Unit\Seconds;
+use Dgame\Time\Unit\TimeUnitInterface;
 use Dgame\Time\Unit\Weeks;
 use Dgame\Time\Unit\Years;
 
@@ -49,11 +49,11 @@ final class TimeUnits
     private $seconds = 0.0;
 
     /**
-     * Date constructor.
+     * TimeUnits constructor.
      *
-     * @param AbstractTimeUnit $unit
+     * @param TimeUnitInterface $unit
      */
-    public function __construct(AbstractTimeUnit $unit)
+    public function __construct(TimeUnitInterface $unit)
     {
         $days        = $unit->inDays();
         $years       = $days->getAmount() / Days::DAYS_PER_YEAR;
