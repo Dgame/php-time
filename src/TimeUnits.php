@@ -77,7 +77,7 @@ final class TimeUnits
 
         if (abs($this->seconds - Seconds::SECONDS_PER_MINUTE) < 0.01) {
             $this->minutes++;
-            $this->seconds = 0;
+            $this->seconds = 0.0;
         }
     }
 
