@@ -1,8 +1,8 @@
 # php-time
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Dgame/php-time/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Dgame/php-time/?branch=master)
-
 [![Build Status](https://travis-ci.org/Dgame/php-time.svg?branch=master)](https://travis-ci.org/Dgame/php-time)
+[![StyleCI](https://styleci.io/repos/60962210/shield?branch=master)](https://styleci.io/repos/60962210)
 
 ## Convert TimeUnits to other TimeUnits in no time.
 
