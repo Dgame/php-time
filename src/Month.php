@@ -44,7 +44,7 @@ final class Month implements TimeConversionInterface
      */
     public static function Of($month, int $year = null): Month
     {
-        $year = $year === null ? date('Y'): $year;
+        $year = $year === null ? date('Y') : $year;
         if (is_string($month)) {
             $month = date_parse($month)['month'];
         }

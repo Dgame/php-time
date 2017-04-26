@@ -1,7 +1,7 @@
 <?php
 
-use function Dgame\Time\Unit\days;
 use PHPUnit\Framework\TestCase;
+use function Dgame\Time\Unit\days;
 
 class DaysTest extends TestCase
 {

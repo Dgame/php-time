@@ -1,7 +1,7 @@
 <?php
 
-use function Dgame\Time\Unit\seconds;
 use PHPUnit\Framework\TestCase;
+use function Dgame\Time\Unit\seconds;
 
 class SecondsTest extends TestCase
 {
