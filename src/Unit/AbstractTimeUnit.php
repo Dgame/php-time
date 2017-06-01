@@ -16,7 +16,7 @@ abstract class AbstractTimeUnit implements TimeUnitInterface
     private $time = 0.0;
 
     /**
-     * TimeUnit constructor.
+     * AbstractTimeUnit constructor.
      *
      * @param float $time
      */
