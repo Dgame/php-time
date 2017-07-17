@@ -6,17 +6,14 @@ use Dgame\Time\Exception\InvalidMonthException;
 use Dgame\Time\Unit\Days;
 use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
-use Dgame\Time\Unit\Months;
 use Dgame\Time\Unit\Seconds;
-use Dgame\Time\Unit\TimeConversionInterface;
 use Dgame\Time\Unit\Weeks;
-use Dgame\Time\Unit\Years;
 
 /**
  * Class Month
  * @package Dgame\Time
  */
-final class Month implements TimeConversionInterface
+final class Month
 {
     /**
      * @var int
@@ -28,9 +25,21 @@ final class Month implements TimeConversionInterface
     private $year = 0;
 
     /**
+     * Month constructor.
+     *
+     * @param int $month
+     * @param int $year
+     */
+    private function __construct(int $month, int $year)
+    {
+        $this->month = $month;
+        $this->year  = $year;
+    }
+
+    /**
      * @return Month
      */
-    public static function Current(): Month
+    public static function current(): Month
     {
         return new self(date('n'), date('Y'));
     }
@@ -42,14 +51,11 @@ final class Month implements TimeConversionInterface
      * @return Month
      * @throws InvalidMonthException
      */
-    public static function Of($month, int $year = null): Month
+    public static function of(string $month, int $year = null): Month
     {
-        $year = $year === null ? date('Y') : $year;
-        if (is_string($month)) {
-            $month = date_parse($month)['month'];
-        }
-
-        if (!empty($month)) {
+        $year  = $year === null ? date('Y') : $year;
+        $month = date_parse($month)['month'];
+        if ($month !== false) {
             return new self($month, $year);
         }
 
@@ -57,15 +63,19 @@ final class Month implements TimeConversionInterface
     }
 
     /**
-     * Month constructor.
-     *
-     * @param int $month
-     * @param int $year
+     * @return int
      */
-    private function __construct(int $month, int $year)
+    public function getMonth(): int
     {
-        $this->month = $month;
-        $this->year  = $year;
+        return $this->month;
+    }
+
+    /**
+     * @return int
+     */
+    public function getYear(): int
+    {
+        return $this->year;
     }
 
     /**
@@ -106,21 +116,5 @@ final class Month implements TimeConversionInterface
     public function inWeeks(): Weeks
     {
         return $this->inDays()->inWeeks();
-    }
-
-    /**
-     * @return Months
-     */
-    public function inMonths(): Months
-    {
-        return $this->inWeeks()->inMonths();
-    }
-
-    /**
-     * @return Years
-     */
-    public function inYears(): Years
-    {
-        return $this->inWeeks()->inYears();
     }
 }

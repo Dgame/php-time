@@ -7,38 +7,18 @@ use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Months;
 use Dgame\Time\Unit\Seconds;
-use Dgame\Time\Unit\TimeConversionInterface;
 use Dgame\Time\Unit\Weeks;
-use Dgame\Time\Unit\Years;
 
 /**
  * Class Year
  * @package Dgame\Time
  */
-final class Year implements TimeConversionInterface
+final class Year
 {
     /**
      * @var int
      */
     private $year = 0;
-
-    /**
-     * @return Year
-     */
-    public static function Current(): Year
-    {
-        return self::Of(date('Y'));
-    }
-
-    /**
-     * @param int $year
-     *
-     * @return Year
-     */
-    public static function Of(int $year): Year
-    {
-        return new self($year);
-    }
 
     /**
      * Year constructor.
@@ -48,6 +28,32 @@ final class Year implements TimeConversionInterface
     private function __construct(int $year)
     {
         $this->year = $year;
+    }
+
+    /**
+     * @return Year
+     */
+    public static function current(): Year
+    {
+        return self::of(date('Y'));
+    }
+
+    /**
+     * @param int $year
+     *
+     * @return Year
+     */
+    public static function of(int $year): Year
+    {
+        return new self($year);
+    }
+
+    /**
+     * @return int
+     */
+    public function getYear(): int
+    {
+        return $this->year;
     }
 
     /**
@@ -104,13 +110,5 @@ final class Year implements TimeConversionInterface
     public function inMonths(): Months
     {
         return $this->inWeeks()->inMonths();
-    }
-
-    /**
-     * @return Years
-     */
-    public function inYears(): Years
-    {
-        return $this->inWeeks()->inYears();
     }
 }
