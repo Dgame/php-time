@@ -1,7 +1,7 @@
 # php-time
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Dgame/php-time/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Dgame/php-time/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Dgame/php-time/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Dgame/php-time/?branch=master)
+[![codecov](https://codecov.io/gh/Dgame/php-time/branch/master/graph/badge.svg)](https://codecov.io/gh/Dgame/php-time)
 [![Build Status](https://scrutinizer-ci.com/g/Dgame/php-time/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Dgame/php-time/build-status/master)
 [![StyleCI](https://styleci.io/repos/60962210/shield?branch=master)](https://styleci.io/repos/60962210)
 [![Build Status](https://travis-ci.org/Dgame/php-time.svg?branch=master)](https://travis-ci.org/Dgame/php-time)
