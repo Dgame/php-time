@@ -10,7 +10,7 @@ final class Hours extends AbstractTimeUnit
 {
     const HOURS_PER_DAY   = 24;
     const HOURS_PER_WEEK  = 168;
-    const HOURS_PER_MONTH = 730.56;
+    const HOURS_PER_MONTH = 730.8;
     const HOURS_PER_YEAR  = 8760;
 
     /**

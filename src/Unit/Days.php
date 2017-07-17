@@ -9,7 +9,7 @@ namespace Dgame\Time\Unit;
 final class Days extends AbstractTimeUnit
 {
     const DAYS_PER_WEEK  = 7;
-    const DAYS_PER_MONTH = 30.44;
+    const DAYS_PER_MONTH = 30.45;
     const DAYS_PER_YEAR  = 365;
 
     /**

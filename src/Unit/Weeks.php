@@ -9,7 +9,7 @@ namespace Dgame\Time\Unit;
 final class Weeks extends AbstractTimeUnit
 {
     const WEEKS_PER_MONTH = 4.35;
-    const WEEKS_PER_YEAR  = 52;
+    const WEEKS_PER_YEAR  = 52.2;
 
     /**
      * @return Seconds

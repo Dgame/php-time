@@ -11,7 +11,7 @@ final class Minutes extends AbstractTimeUnit
     const MINUTES_PER_HOUR   = 60;
     const MINUTES_PER_DAY    = 1440;
     const MINUTES_PER_WEEK   = 10080;
-    const MINUTES_PER_MONTH  = 43833.33;
+    const MINUTES_PER_MONTH  = 43848;
     const MINUTES_PER_YEAR   = 525600;
 
     /**

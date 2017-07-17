@@ -2,6 +2,8 @@
 
 use Dgame\Time\Unit\Seconds;
 use PHPUnit\Framework\TestCase;
+use function Dgame\Time\Unit\hours;
+use function Dgame\Time\Unit\minutes;
 use function Dgame\Time\Unit\seconds;
 
 class SecondsTest extends TestCase
@@ -17,5 +19,25 @@ class SecondsTest extends TestCase
             $this->assertTrue(seconds($second)->inMonths()->equalsAmount($second / Seconds::SECONDS_PER_MONTH));
             $this->assertTrue(seconds($second)->inYears()->equalsAmount($second / Seconds::SECONDS_PER_YEAR));
         }
+    }
+
+    public function testAdd()
+    {
+        $this->assertTrue(seconds(60)->add(seconds(60))->equals(minutes(2)));
+        $this->assertTrue(seconds(90)->add(seconds(60))->equals(minutes(2.5)));
+        $this->assertTrue(seconds(90)->add(seconds(30))->equals(minutes(2)));
+        $this->assertTrue(seconds(59)->add(seconds(1))->equals(minutes(1)));
+        $this->assertTrue(seconds(59.5)->add(seconds(0.5))->equals(minutes(1)));
+        $this->assertTrue(seconds(3500)->add(seconds(100))->equals(hours(1)));
+    }
+
+    public function testSub()
+    {
+        $this->assertTrue(seconds(60)->subtract(seconds(60))->equals(minutes(0)));
+        $this->assertTrue(seconds(90)->subtract(seconds(60))->equals(minutes(0.5)));
+        $this->assertTrue(seconds(90)->subtract(seconds(30))->equals(minutes(1)));
+        $this->assertTrue(seconds(59)->subtract(seconds(1))->equals(seconds(58)));
+        $this->assertTrue(seconds(59.5)->subtract(seconds(0.5))->equals(seconds(59)));
+        $this->assertTrue(seconds(3700)->subtract(seconds(100))->equals(hours(1)));
     }
 }

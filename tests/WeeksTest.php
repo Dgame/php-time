@@ -6,6 +6,7 @@ use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Seconds;
 use Dgame\Time\Unit\Weeks;
 use PHPUnit\Framework\TestCase;
+use function Dgame\Time\Unit\days;
 use function Dgame\Time\Unit\weeks;
 
 class WeeksTest extends TestCase
@@ -21,5 +22,15 @@ class WeeksTest extends TestCase
             $this->assertTrue(weeks($weeks)->inMonths()->equalsAmount($weeks / Weeks::WEEKS_PER_MONTH));
             $this->assertTrue(weeks($weeks)->inYears()->equalsAmount($weeks / Weeks::WEEKS_PER_YEAR));
         }
+    }
+
+    public function testAdd()
+    {
+        $this->assertTrue(weeks(1)->add(weeks(2))->equals(days(21)));
+    }
+
+    public function testSub()
+    {
+        $this->assertTrue(weeks(4)->subtract(weeks(2))->equals(days(14)));
     }
 }

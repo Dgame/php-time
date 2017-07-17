@@ -11,14 +11,13 @@ class TimeUnitsTest extends TestCase
     public function testDateUnit()
     {
         $unit = new TimeUnits(days(1000));
-
         $this->assertTrue($unit->getYears()->equalsAmount(2));
         $this->assertTrue($unit->getMonths()->equalsAmount(8));
         $this->assertTrue($unit->getWeeks()->equalsAmount(3));
         $this->assertTrue($unit->getDays()->equalsAmount(5));
-        $this->assertTrue($unit->getHours()->equalsAmount(11));
-        $this->assertTrue($unit->getMinutes()->equalsAmount(33));
-        $this->assertTrue($unit->getSeconds()->equalsAmount(20));
+        $this->assertTrue($unit->getHours()->equalsAmount(9));
+        $this->assertTrue($unit->getMinutes()->equalsAmount(36));
+        $this->assertTrue($unit->getSeconds()->equalsAmount(0));
     }
 
     public function testDays()
@@ -68,8 +67,8 @@ class TimeUnitsTest extends TestCase
         $this->assertTrue($unit->getMonths()->equalsAmount(6));
         $this->assertTrue($unit->getWeeks()->equalsAmount(1));
         $this->assertTrue($unit->getDays()->equalsAmount(5));
-        $this->assertTrue($unit->getHours()->equalsAmount(8));
-        $this->assertTrue($unit->getMinutes()->equalsAmount(40));
+        $this->assertTrue($unit->getHours()->equalsAmount(7));
+        $this->assertTrue($unit->getMinutes()->equalsAmount(12));
         $this->assertTrue($unit->getSeconds()->equalsAmount(0));
     }
 }

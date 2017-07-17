@@ -1,10 +1,12 @@
 <?php
 
+use function Dgame\Time\Unit\days;
 use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Seconds;
 use PHPUnit\Framework\TestCase;
 use function Dgame\Time\Unit\hours;
+use function Dgame\Time\Unit\minutes;
 
 class HoursTest extends TestCase
 {
@@ -19,5 +21,23 @@ class HoursTest extends TestCase
             $this->assertTrue(hours($hour)->inMonths()->equalsAmount($hour / Hours::HOURS_PER_MONTH));
             $this->assertTrue(hours($hour)->inYears()->equalsAmount($hour / Hours::HOURS_PER_YEAR));
         }
+    }
+
+    public function testAdd()
+    {
+        $this->assertTrue(hours(1)->add(minutes(60))->equals(hours(2)));
+        $this->assertTrue(hours(1.5)->add(minutes(60))->equals(hours(2.5)));
+        $this->assertTrue(hours(1.5)->add(minutes(30))->equals(hours(2)));
+        $this->assertTrue(hours(23)->add(minutes(30))->equals(hours(23.5)));
+        $this->assertTrue(hours(23.5)->add(minutes(30))->equals(days(1)));
+    }
+
+    public function testSub()
+    {
+        $this->assertTrue(hours(1)->subtract(minutes(60))->equals(hours(0)));
+        $this->assertTrue(hours(1.5)->subtract(minutes(60))->equals(hours(0.5)));
+        $this->assertTrue(hours(1.5)->subtract(minutes(30))->equals(hours(1)));
+        $this->assertTrue(hours(23)->subtract(minutes(30))->equals(hours(22.5)));
+        $this->assertTrue(hours(23.5)->subtract(minutes(30))->equals(hours(23)));
     }
 }

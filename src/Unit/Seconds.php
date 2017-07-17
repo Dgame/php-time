@@ -12,7 +12,7 @@ final class Seconds extends AbstractTimeUnit
     const SECONDS_PER_HOUR   = 3600;
     const SECONDS_PER_DAY    = 86400;
     const SECONDS_PER_WEEK   = 604800;
-    const SECONDS_PER_MONTH  = 2630000;
+    const SECONDS_PER_MONTH  = 2630880;
     const SECONDS_PER_YEAR   = 31536000;
 
     /**
