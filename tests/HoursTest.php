@@ -1,10 +1,10 @@
 <?php
 
-use function Dgame\Time\Unit\days;
 use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Seconds;
 use PHPUnit\Framework\TestCase;
+use function Dgame\Time\Unit\days;
 use function Dgame\Time\Unit\hours;
 use function Dgame\Time\Unit\minutes;
 
