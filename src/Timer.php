@@ -27,7 +27,7 @@ final class Timer
     /**
      *
      */
-    public function start(): void
+    public function start()
     {
         $this->timings[] = microtime(true);
     }
