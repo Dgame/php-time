@@ -39,7 +39,7 @@ final class Days extends AbstractTimeUnit
     /**
      * @return Days
      */
-    public function inDays(): Days
+    public function inDays(): self
     {
         return $this;
     }

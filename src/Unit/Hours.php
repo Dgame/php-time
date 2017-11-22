@@ -32,7 +32,7 @@ final class Hours extends AbstractTimeUnit
     /**
      * @return Hours
      */
-    public function inHours(): Hours
+    public function inHours(): self
     {
         return $this;
     }

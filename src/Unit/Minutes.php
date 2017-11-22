@@ -25,7 +25,7 @@ final class Minutes extends AbstractTimeUnit
     /**
      * @return Minutes
      */
-    public function inMinutes(): Minutes
+    public function inMinutes(): self
     {
         return $this;
     }

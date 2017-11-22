@@ -53,7 +53,7 @@ final class Months extends AbstractTimeUnit
     /**
      * @return Months
      */
-    public function inMonths(): Months
+    public function inMonths(): self
     {
         return $this;
     }

@@ -46,7 +46,7 @@ final class Weeks extends AbstractTimeUnit
     /**
      * @return Weeks
      */
-    public function inWeeks(): Weeks
+    public function inWeeks(): self
     {
         return $this;
     }

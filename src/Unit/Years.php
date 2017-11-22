@@ -59,7 +59,7 @@ final class Years extends AbstractTimeUnit
     /**
      * @return Years
      */
-    public function inYears(): Years
+    public function inYears(): self
     {
         return $this;
     }

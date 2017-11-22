@@ -33,7 +33,7 @@ final class Year
     /**
      * @return Year
      */
-    public static function current(): Year
+    public static function current(): self
     {
         return self::of(date('Y'));
     }
@@ -43,7 +43,7 @@ final class Year
      *
      * @return Year
      */
-    public static function of(int $year): Year
+    public static function of(int $year): self
     {
         return new self($year);
     }

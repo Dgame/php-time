@@ -18,7 +18,7 @@ final class Seconds extends AbstractTimeUnit
     /**
      * @return Seconds
      */
-    public function inSeconds(): Seconds
+    public function inSeconds(): self
     {
         return $this;
     }
