@@ -2,14 +2,14 @@
 
 namespace Dgame\Time\Unit;
 
+use Dgame\Time\Timer;
+
 /**
  * Class AbstractTimeUnit
  * @package Dgame\Time\Unit
  */
 abstract class AbstractTimeUnit implements TimeUnitInterface
 {
-    const EPSILON = 0.00001;
-
     /**
      * @var float
      */
@@ -40,7 +40,7 @@ abstract class AbstractTimeUnit implements TimeUnitInterface
      */
     final public function equalsAmount(float $time): bool
     {
-        return abs($this->time - $time) < self::EPSILON;
+        return Timer::equals($this->time, $time);
     }
 
     /**

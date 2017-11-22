@@ -5,6 +5,16 @@ namespace Dgame\Time\Unit;
 /**
  * @param float $time
  *
+ * @return Milliseconds
+ */
+function msecs(float $time): Milliseconds
+{
+    return new Milliseconds($time);
+}
+
+/**
+ * @param float $time
+ *
  * @return Seconds
  */
 function seconds(float $time): Seconds
