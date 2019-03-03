@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class TimerTest extends TestCase
 {
-    public function testTimer()
+    public function testTimer(): void
     {
         $timer = new Timer();
         $timer->start();
@@ -26,7 +26,7 @@ final class TimerTest extends TestCase
         $this->assertEquals('3.5 seconds', Timer::convert($ms, 1));
     }
 
-    public function testMultipleTimer()
+    public function testMultipleTimer(): void
     {
         $timer = new Timer();
         $timer->start();

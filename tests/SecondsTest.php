@@ -8,7 +8,7 @@ use function Dgame\Time\Unit\seconds;
 
 class SecondsTest extends TestCase
 {
-    public function testSeconds()
+    public function testSeconds(): void
     {
         foreach (range(1, 600) as $second) {
             $this->assertTrue(seconds($second)->inSeconds()->equalsAmount($second));
@@ -21,7 +21,7 @@ class SecondsTest extends TestCase
         }
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         $this->assertTrue(seconds(60)->add(seconds(60))->equals(minutes(2)));
         $this->assertTrue(seconds(90)->add(seconds(60))->equals(minutes(2.5)));
@@ -31,7 +31,7 @@ class SecondsTest extends TestCase
         $this->assertTrue(seconds(3500)->add(seconds(100))->equals(hours(1)));
     }
 
-    public function testSub()
+    public function testSub(): void
     {
         $this->assertTrue(seconds(60)->subtract(seconds(60))->equals(minutes(0)));
         $this->assertTrue(seconds(90)->subtract(seconds(60))->equals(minutes(0.5)));

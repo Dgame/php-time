@@ -8,7 +8,7 @@ use function Dgame\Time\Unit\msecs;
  */
 final class MillisecondsTest extends TestCase
 {
-    public function testBasic()
+    public function testBasic(): void
     {
         $msecs1 = msecs(500);
         $this->assertEquals(0.5, $msecs1->inSeconds()->getAmount());

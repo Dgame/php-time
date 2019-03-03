@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 class YearTest extends TestCase
 {
-    public function testCurrent()
+    public function testCurrent(): void
     {
         $year = Year::current();
         $this->assertEquals(date('Y'), $year->getYear());
@@ -15,7 +15,7 @@ class YearTest extends TestCase
         $this->assertTrue($year->inDays()->equalsAmount($days));
     }
 
-    public function testOf()
+    public function testOf(): void
     {
         $this->assertFalse(Year::of(2015)->isLeapyear());
         $this->assertTrue(Year::of(2016)->isLeapyear());

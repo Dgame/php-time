@@ -8,7 +8,7 @@ use function Dgame\Time\Unit\minutes;
 
 class TimeUnitsTest extends TestCase
 {
-    public function testDateUnit()
+    public function testDateUnit(): void
     {
         $unit = new TimeUnits(days(1000));
         $this->assertTrue($unit->getYears()->equalsAmount(2));
@@ -20,7 +20,7 @@ class TimeUnitsTest extends TestCase
         $this->assertTrue($unit->getSeconds()->equalsAmount(0));
     }
 
-    public function testDays()
+    public function testDays(): void
     {
         $unit = new TimeUnits(days(2.3));
 
@@ -33,7 +33,7 @@ class TimeUnitsTest extends TestCase
         $this->assertTrue($unit->getSeconds()->equalsAmount(0));
     }
 
-    public function testHours()
+    public function testHours(): void
     {
         $unit = new TimeUnits(hours(4.5));
 
@@ -46,7 +46,7 @@ class TimeUnitsTest extends TestCase
         $this->assertTrue($unit->getSeconds()->equalsAmount(0));
     }
 
-    public function testMinutes()
+    public function testMinutes(): void
     {
         $unit = new TimeUnits(minutes(525));
 
@@ -59,7 +59,7 @@ class TimeUnitsTest extends TestCase
         $this->assertTrue($unit->getSeconds()->equalsAmount(0));
     }
 
-    public function testDateUnitDiff()
+    public function testDateUnitDiff(): void
     {
         $unit = TimeUnits::diff(new DateTime('01.08.1985'), new DateTime('04.02.2017'));
 

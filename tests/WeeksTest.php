@@ -11,7 +11,7 @@ use function Dgame\Time\Unit\weeks;
 
 class WeeksTest extends TestCase
 {
-    public function testWeeks()
+    public function testWeeks(): void
     {
         foreach (range(1, 104) as $weeks) {
             $this->assertTrue(weeks($weeks)->inSeconds()->equalsAmount($weeks * Seconds::SECONDS_PER_WEEK));
@@ -24,12 +24,12 @@ class WeeksTest extends TestCase
         }
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         $this->assertTrue(weeks(1)->add(weeks(2))->equals(days(21)));
     }
 
-    public function testSub()
+    public function testSub(): void
     {
         $this->assertTrue(weeks(4)->subtract(weeks(2))->equals(days(14)));
     }

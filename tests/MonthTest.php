@@ -6,14 +6,14 @@ use PHPUnit\Framework\TestCase;
 
 class MonthTest extends TestCase
 {
-    public function testCurrent()
+    public function testCurrent(): void
     {
         $month = Month::current();
         $this->assertEquals(date('n'), $month->getMonth());
         $this->assertEquals(date('Y'), $month->getYear());
     }
 
-    public function testOf()
+    public function testOf(): void
     {
         $this->assertTrue(Month::of('Feb', 2015)->inDays()->equalsAmount(28));
         $this->assertTrue(Month::of('Feb', 2015)->inWeeks()->equalsAmount(4));

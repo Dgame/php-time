@@ -10,7 +10,7 @@ use function Dgame\Time\Unit\minutes;
 
 class HoursTest extends TestCase
 {
-    public function testHours()
+    public function testHours(): void
     {
         foreach (range(1, 72) as $hour) {
             $this->assertTrue(hours($hour)->inSeconds()->equalsAmount($hour * Seconds::SECONDS_PER_HOUR));
@@ -23,7 +23,7 @@ class HoursTest extends TestCase
         }
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         $this->assertTrue(hours(1)->add(minutes(60))->equals(hours(2)));
         $this->assertTrue(hours(1.5)->add(minutes(60))->equals(hours(2.5)));
@@ -32,7 +32,7 @@ class HoursTest extends TestCase
         $this->assertTrue(hours(23.5)->add(minutes(30))->equals(days(1)));
     }
 
-    public function testSub()
+    public function testSub(): void
     {
         $this->assertTrue(hours(1)->subtract(minutes(60))->equals(hours(0)));
         $this->assertTrue(hours(1.5)->subtract(minutes(60))->equals(hours(0.5)));

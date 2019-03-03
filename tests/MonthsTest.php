@@ -12,7 +12,7 @@ use function Dgame\Time\Unit\years;
 
 class MonthsTest extends TestCase
 {
-    public function testMonths()
+    public function testMonths(): void
     {
         foreach (range(1, 24) as $month) {
             $this->assertTrue(months($month)->inSeconds()->equalsAmount($month * Seconds::SECONDS_PER_MONTH));
@@ -25,7 +25,7 @@ class MonthsTest extends TestCase
         }
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         $this->assertTrue(months(1)->add(years(0.5))->equals(months(7)));
         $this->assertTrue(months(1.5)->add(years(0.25))->equals(months(4.5)));
@@ -34,7 +34,7 @@ class MonthsTest extends TestCase
         $this->assertTrue(months(6)->add(months(6))->equals(years(1)));
     }
 
-    public function testSub()
+    public function testSub(): void
     {
         $this->assertTrue(months(7)->subtract(years(0.5))->equals(months(1)));
         $this->assertTrue(months(6.5)->subtract(years(0.5))->equals(months(0.5)));

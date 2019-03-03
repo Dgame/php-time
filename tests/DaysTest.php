@@ -11,7 +11,7 @@ use function Dgame\Time\Unit\years;
 
 class DaysTest extends TestCase
 {
-    public function testDays()
+    public function testDays(): void
     {
         foreach (range(1, 365) as $day) {
             $this->assertTrue(days($day)->inYears()->equalsAmount($day / Days::DAYS_PER_YEAR));
@@ -24,7 +24,7 @@ class DaysTest extends TestCase
         }
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         $this->assertTrue(days(1)->add(hours(24))->equals(days(2)));
         $this->assertTrue(days(1.5)->add(hours(24))->equals(days(2.5)));
@@ -34,7 +34,7 @@ class DaysTest extends TestCase
         $this->assertTrue(days(364.5)->add(hours(12))->equals(years(1)));
     }
 
-    public function testSub()
+    public function testSub(): void
     {
         $this->assertTrue(days(1)->subtract(hours(24))->equals(days(0)));
         $this->assertTrue(days(1.5)->subtract(hours(24))->equals(days(0.5)));
