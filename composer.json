@@ -37,7 +37,8 @@
     },
     "scripts": {
         "test": [
-            "phpunit"
+            "phpunit",
+            "phpstan analyse src --level=7"
         ],
         "coverage": [
             "phpunit --coverage-clover=coverage"
