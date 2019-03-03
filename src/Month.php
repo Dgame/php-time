@@ -41,11 +41,11 @@ final class Month
      */
     public static function current(): self
     {
-        return new self(date('n'), date('Y'));
+        return new self((int) date('n'), (int) date('Y'));
     }
 
     /**
-     * @param          $month
+     * @param string   $month
      * @param int|null $year
      *
      * @return Month
@@ -53,10 +53,10 @@ final class Month
      */
     public static function of(string $month, int $year = null): self
     {
-        $year  = $year === null ? date('Y') : $year;
-        $month = date_parse($month)['month'];
-        if ($month !== false) {
-            return new self($month, $year);
+        $year         = $year === null ? (int) date('Y') : $year;
+        $parsed_month = date_parse($month)['month'];
+        if ($parsed_month !== false) {
+            return new self($parsed_month, $year);
         }
 
         throw new InvalidMonthException($month);

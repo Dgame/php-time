@@ -35,7 +35,7 @@ final class Year
      */
     public static function current(): self
     {
-        return self::of(date('Y'));
+        return self::of((int) date('Y'));
     }
 
     /**
