@@ -1,11 +1,11 @@
 <?php
 
-use Dgame\Time\Unit\Minutes;
-use Dgame\Time\Unit\Seconds;
-use PHPUnit\Framework\TestCase;
 use function Dgame\Time\Unit\hours;
+use Dgame\Time\Unit\Minutes;
 use function Dgame\Time\Unit\minutes;
+use Dgame\Time\Unit\Seconds;
 use function Dgame\Time\Unit\seconds;
+use PHPUnit\Framework\TestCase;
 
 class MinutesTest extends TestCase
 {

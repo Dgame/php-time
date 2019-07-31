@@ -1,13 +1,13 @@
 <?php
 
+use function Dgame\Time\Unit\days;
 use Dgame\Time\Unit\Days;
 use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
 use Dgame\Time\Unit\Seconds;
 use Dgame\Time\Unit\Weeks;
-use PHPUnit\Framework\TestCase;
-use function Dgame\Time\Unit\days;
 use function Dgame\Time\Unit\weeks;
+use PHPUnit\Framework\TestCase;
 
 class WeeksTest extends TestCase
 {

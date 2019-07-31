@@ -1,12 +1,12 @@
 <?php
 
+use function Dgame\Time\Unit\days;
 use Dgame\Time\Unit\Hours;
+use function Dgame\Time\Unit\hours;
 use Dgame\Time\Unit\Minutes;
+use function Dgame\Time\Unit\minutes;
 use Dgame\Time\Unit\Seconds;
 use PHPUnit\Framework\TestCase;
-use function Dgame\Time\Unit\days;
-use function Dgame\Time\Unit\hours;
-use function Dgame\Time\Unit\minutes;
 
 class HoursTest extends TestCase
 {

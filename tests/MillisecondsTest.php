@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use function Dgame\Time\Unit\msecs;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MillisecondsTest

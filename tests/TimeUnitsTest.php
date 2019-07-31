@@ -1,10 +1,10 @@
 <?php
 
 use Dgame\Time\TimeUnits;
-use PHPUnit\Framework\TestCase;
 use function Dgame\Time\Unit\days;
 use function Dgame\Time\Unit\hours;
 use function Dgame\Time\Unit\minutes;
+use PHPUnit\Framework\TestCase;
 
 class TimeUnitsTest extends TestCase
 {
