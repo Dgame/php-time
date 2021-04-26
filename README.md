@@ -60,7 +60,7 @@ weeks(1)->equals(days(7));
 
 ```php
 days(1)->add(hours(24))->equals(days(2));
-hours(24)->subtract(days(0.5))->equals(hours(12)):
+hours(24)->subtract(days(0.5))->equals(hours(12));
 hours(1)->equals(minutes(60));
 ```
 
