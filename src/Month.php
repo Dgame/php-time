@@ -53,8 +53,11 @@ final class Month
      */
     public static function of(string $month, int $year = null): self
     {
-        $year         = $year === null ? (int) date('Y') : $year;
-        $parsed_month = date_parse($month)['month'];
+        $year   = $year === null ? (int) date('Y') : $year;
+        $parsed = date_parse($month);
+        assert($parsed !== false);
+
+        $parsed_month = $parsed['month'];
         if ($parsed_month !== false) {
             return new self($parsed_month, $year);
         }
