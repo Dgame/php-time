@@ -88,7 +88,10 @@ final class TimeUnits
      */
     public static function from(DateInterval $interval): self
     {
-        return new self(new Days($interval->days));
+        $days = $interval->days;
+        assert($days !== false);
+
+        return new self(new Days((float) $days));
     }
 
     /**
