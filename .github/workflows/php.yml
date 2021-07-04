@@ -7,8 +7,6 @@ on:
       - synchronize
       - reopened
       - ready_for_review
-    paths:
-      - '**/*.php'
 
 jobs:
   test:
