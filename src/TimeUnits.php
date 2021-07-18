@@ -31,19 +31,19 @@ final class TimeUnits
         $seconds     = $unit->inSeconds()->getAmount();
         $this->years = floor($seconds / Seconds::SECONDS_PER_YEAR);
 
-        $seconds      -= $this->years * Seconds::SECONDS_PER_YEAR;
+        $seconds -= $this->years * Seconds::SECONDS_PER_YEAR;
         $this->months = floor($seconds / Seconds::SECONDS_PER_MONTH);
 
-        $seconds     -= $this->months * Seconds::SECONDS_PER_MONTH;
+        $seconds -= $this->months * Seconds::SECONDS_PER_MONTH;
         $this->weeks = floor($seconds / Seconds::SECONDS_PER_WEEK);
 
-        $seconds    -= $this->weeks * Seconds::SECONDS_PER_WEEK;
+        $seconds -= $this->weeks * Seconds::SECONDS_PER_WEEK;
         $this->days = floor($seconds / Seconds::SECONDS_PER_DAY);
 
-        $seconds     -= $this->days * Seconds::SECONDS_PER_DAY;
+        $seconds -= $this->days * Seconds::SECONDS_PER_DAY;
         $this->hours = floor($seconds / Seconds::SECONDS_PER_HOUR);
 
-        $seconds       -= $this->hours * Seconds::SECONDS_PER_HOUR;
+        $seconds -= $this->hours * Seconds::SECONDS_PER_HOUR;
         $this->minutes = floor($seconds / Seconds::SECONDS_PER_MINUTE);
 
         $this->seconds = round($seconds - ($this->minutes * Seconds::SECONDS_PER_MINUTE), 2);
