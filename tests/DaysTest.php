@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
 use Dgame\Time\Unit\Days;
 use function Dgame\Time\Unit\days;
 use Dgame\Time\Unit\Hours;
@@ -9,7 +13,7 @@ use Dgame\Time\Unit\Seconds;
 use function Dgame\Time\Unit\years;
 use PHPUnit\Framework\TestCase;
 
-class DaysTest extends TestCase
+final class DaysTest extends TestCase
 {
     public function testDays(): void
     {

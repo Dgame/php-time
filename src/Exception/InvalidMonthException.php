@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dgame\Time\Exception;
 
-class InvalidMonthException extends \Exception
+use InvalidArgumentException;
+
+final class InvalidMonthException extends InvalidArgumentException
 {
     public function __construct(string $month)
     {

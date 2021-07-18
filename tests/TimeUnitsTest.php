@@ -1,12 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
+use DateTime;
 use Dgame\Time\TimeUnits;
 use function Dgame\Time\Unit\days;
 use function Dgame\Time\Unit\hours;
 use function Dgame\Time\Unit\minutes;
 use PHPUnit\Framework\TestCase;
 
-class TimeUnitsTest extends TestCase
+final class TimeUnitsTest extends TestCase
 {
     public function testDateUnit(): void
     {

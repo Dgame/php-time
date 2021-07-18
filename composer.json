@@ -1,9 +1,7 @@
 {
     "name": "dgame/php-time",
-    "description": "php time conversion",
-    "license": "MIT",
     "type": "library",
-    "homepage": "https://github.com/php-time",
+    "description": "php time conversion",
     "keywords": [
         "Date",
         "Time",
@@ -11,37 +9,66 @@
         "Clock",
         "Time conversion"
     ],
+    "homepage": "https://github.com/php-time",
+    "license": "MIT",
     "authors": [
         {
             "name": "Randy Schütt",
-            "email": "rswhite4@gmail.com"
+            "email": "rswhite4@gmail.com",
+            "role": "lead"
         }
     ],
     "require": {
-        "php": ">=7.1"
+        "php": "8.0",
+        "thecodingmachine/safe": "^1.3"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=8",
-        "phpstan/phpstan": "^0.12"
+        "ergebnis/composer-normalize": "^2.4",
+        "ergebnis/phpstan-rules": "^0.15",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-deprecation-rules": "^0.12",
+        "phpstan/phpstan-strict-rules": "^0.12",
+        "phpunit/phpunit": "^9.4",
+        "roave/security-advisories": "dev-latest",
+        "slevomat/coding-standard": "dev-master",
+        "spaceemotion/php-coding-standard": "dev-master",
+        "spaze/phpstan-disallowed-calls": "^1.5",
+        "symplify/easy-coding-standard": "^9.3",
+        "thecodingmachine/phpstan-safe-rule": "^1.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.12"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.0"
+        },
+        "preferred-install": "dist",
+        "process-timeout": 0,
+        "sort-packages": true
     },
     "autoload": {
-        "classmap": [
-            "src/"
-        ],
-        "files": [
-            "src/functions.php"
-        ],
         "psr-4": {
             "Dgame\\Time\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dgame\\Time\\Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
-        "test": [
-            "phpunit",
-            "phpstan analyse src --level=8"
-        ],
-        "coverage": [
-            "phpunit --coverage-clover=coverage"
-        ]
+        "coverage": "phpunit --coverage-clover=coverage",
+        "lint": "phpcstd --continue",
+        "lint:fix": "phpcstd --fix --continue",
+        "lint:fix-style": "ecs --fix",
+        "lint:static": "phpstan",
+        "lint:style": "ecs",
+        "test": "phpunit --exclude-group timer"
     }
 }

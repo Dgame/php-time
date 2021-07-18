@@ -1,13 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
 use Dgame\Time\Timer;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class TimerTest
- */
 final class TimerTest extends TestCase
 {
+    /**
+     * @group timer
+     */
     public function testTimer(): void
     {
         $timer = new Timer();
@@ -26,6 +30,9 @@ final class TimerTest extends TestCase
         $this->assertEquals('3.5 seconds', Timer::convert($ms, 1));
     }
 
+    /**
+     * @group timer
+     */
     public function testMultipleTimer(): void
     {
         $timer = new Timer();

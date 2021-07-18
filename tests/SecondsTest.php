@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
 use function Dgame\Time\Unit\hours;
 use function Dgame\Time\Unit\minutes;
 use Dgame\Time\Unit\Seconds;
 use function Dgame\Time\Unit\seconds;
 use PHPUnit\Framework\TestCase;
 
-class SecondsTest extends TestCase
+final class SecondsTest extends TestCase
 {
     public function testSeconds(): void
     {

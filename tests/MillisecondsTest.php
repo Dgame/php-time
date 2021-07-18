@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
 use function Dgame\Time\Unit\msecs;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class MillisecondsTest
- */
 final class MillisecondsTest extends TestCase
 {
     public function testBasic(): void

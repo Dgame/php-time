@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  time:
+    container_name: time
+    build:
+      dockerfile: ./.docker/php/Dockerfile
+      context: .
+    volumes:
+      - ./:/var/www/html/
+      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini

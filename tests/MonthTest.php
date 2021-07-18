@@ -1,10 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
+namespace Dgame\Time\Tests;
+
 use Dgame\Time\Exception\InvalidMonthException;
 use Dgame\Time\Month;
 use PHPUnit\Framework\TestCase;
 
-class MonthTest extends TestCase
+final class MonthTest extends TestCase
 {
     public function testCurrent(): void
     {
@@ -15,6 +21,10 @@ class MonthTest extends TestCase
 
     public function testOf(): void
     {
+        if (!extension_loaded('calendar')) {
+            $this->markTestSkipped('No calendar extension');
+        }
+
         $this->assertTrue(Month::of('Feb', 2015)->inDays()->equalsAmount(28));
         $this->assertTrue(Month::of('Feb', 2015)->inWeeks()->equalsAmount(4));
         $this->assertTrue(Month::of('Feb', 2016)->inDays()->equalsAmount(29));

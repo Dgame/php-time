@@ -1,9 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
+namespace Dgame\Time\Tests;
+
 use Dgame\Time\Year;
 use PHPUnit\Framework\TestCase;
 
-class YearTest extends TestCase
+final class YearTest extends TestCase
 {
     public function testCurrent(): void
     {
@@ -23,8 +29,8 @@ class YearTest extends TestCase
         $this->assertTrue(Year::of(2015)->inDays()->equalsAmount(365));
         $this->assertTrue(Year::of(2016)->inDays()->equalsAmount(366));
 
-        $this->assertTrue(Year::of(2015)->inWeeks()->equalsAmount(52.142857142857));
-        $this->assertTrue(Year::of(2016)->inWeeks()->equalsAmount(52.285714285714));
+        $this->assertTrue(Year::of(2015)->inWeeks()->equalsAmount(52.142857142857146));
+        $this->assertTrue(Year::of(2016)->inWeeks()->equalsAmount(52.285714285714285));
 
         $this->assertTrue(Year::of(2015)->inHours()->equalsAmount(365 * 24));
         $this->assertTrue(Year::of(2015)->inMinutes()->equalsAmount(365 * 24 * 60));

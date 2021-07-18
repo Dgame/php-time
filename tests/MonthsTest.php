@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Dgame\Time\Tests;
+
 use Dgame\Time\Unit\Days;
 use Dgame\Time\Unit\Hours;
 use Dgame\Time\Unit\Minutes;
@@ -10,7 +14,7 @@ use Dgame\Time\Unit\Weeks;
 use function Dgame\Time\Unit\years;
 use PHPUnit\Framework\TestCase;
 
-class MonthsTest extends TestCase
+final class MonthsTest extends TestCase
 {
     public function testMonths(): void
     {
